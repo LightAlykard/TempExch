@@ -31,10 +31,6 @@ image:
 	@echo "\n\nTo start container:"
 	@echo 'docker run -dit --restart unless-stopped -p 8080:8080 -v $(pwd)/conf:/app/data/conf --name test-env test-env:latest'
 
-## check: Run linters
-check:
-	golangci-lint ./.golangci.yml run
-
 ## run: Run test-env
 run:
 	go run ./cmd/test-env/ -config ./data/conf/config.yaml
