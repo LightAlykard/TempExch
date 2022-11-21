@@ -9,6 +9,8 @@ import (
 	"github.com/seggga/temp-stor-auth/internal/adapters/grpc/grpcauth"
 )
 
+var _ grpcauth.MessageServiceServer = &MyServer{}
+
 type MyServer struct {
 	//mainCtx context.Context
 	secret   string
@@ -30,15 +32,4 @@ func (s *MyServer) ServeJWT(ctx context.Context, msg *grpcauth.Message) (*grpcau
 	}
 
 	return nil, err
-}
-
-func (*MyServer) SendToAnalitic(ctx context.Context, msg *grpcauth.Message) (*grpcauth.Reply, error) {
-	// log.Printf("receive message: %s", msg)
-	// msg.ID=ctx.Value()
-	// msg.Name=ctx.Value()
-	// msg.Hash=ctx.Value()
-	// msg.Time=time.Now()
-	//В процессе я понял что этот метод не нужен
-
-	return &grpcauth.Reply{status: "OK"}, nil
 }

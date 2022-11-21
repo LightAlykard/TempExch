@@ -12,18 +12,6 @@ message ReplyJWT {
     string status = 1;
 }
 
-message MessageAnal {
-    string ID = 1;
-    string Name = 2;
-    string Hash = 3;
-    string Time = 4;
-}
-
-message ReplyAnal {    
-    string status = 1;
-}
-
 service MessageService {
-    rpc ServeJWT(MessageJWT) returns (ReplyJWT) {}
-    rpc SendToAnalitic(MessageAnal) returns (ReplyAnal) {}    
+    rpc ServeJWT(MessageJWT) returns (ReplyJWT) {}    
 }
