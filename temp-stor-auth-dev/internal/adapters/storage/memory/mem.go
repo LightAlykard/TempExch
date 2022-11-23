@@ -41,7 +41,7 @@ func (s *Storage) Get(ctx context.Context, login string) (*models.User, error) {
 	s.mutex.Unlock()
 
 	if !ok {
-		return nil, er.NOT_FOUND
+		return nil, er.NotFound
 	}
 	return &u, nil
 }
