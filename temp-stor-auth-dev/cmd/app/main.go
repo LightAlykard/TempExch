@@ -6,7 +6,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/seggga/temp-stor-auth/internal/application"
+	"github.com/TempExch/temp-stor-auth-dev/internal/application"
 )
 
 func main() {

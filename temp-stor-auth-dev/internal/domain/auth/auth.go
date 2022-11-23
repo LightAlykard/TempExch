@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/seggga/temp-stor-auth/internal/domain/models"
-	"github.com/seggga/temp-stor-auth/internal/ports"
+	"github.com/TempExch/temp-stor-auth-dev/internal/domain/models"
+	"github.com/TempExch/temp-stor-auth-dev/internal/ports"
 )
 
 // Service implements main auth logic
