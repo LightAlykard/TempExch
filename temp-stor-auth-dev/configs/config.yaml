@@ -1,0 +1,13 @@
+# config.yaml
+# sets parameters as follows:
+#   application loglevel
+#   ports for REST and gRPC services
+#   JWT secret word and duration in seconds 
+
+logger:
+  level: "debug"
+rest-port: "8080"
+grpc-port: "8081"
+jwt:
+  secret: "super-secret-key"
+  duration: 600

@@ -1,0 +1,75 @@
+openapi: 3.0.3
+info:
+  title: Temp Net Stor
+  version: "1.0.0"
+paths:
+  /login:
+    post:
+      tags:
+        - user
+      summary: Logs user into the system using login and password
+      description: ''
+      requestBody:
+        description: user authentication
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: Authorization successfuly passed
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWT'
+        '401':
+          description: Invalid username/password supplied
+  /logout:
+    get:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      description: ''
+      operationId: logoutUser
+      parameters: []
+      responses:
+        default:
+          description: successful operation
+          
+components:
+  schemas:
+    Login:
+      required: 
+        - username
+        - password
+      type: object
+      properties:
+        username:
+          type: string
+          example: "test-login"
+        password:
+          type: string
+          example: "test-password"
+    JWT:
+      type: string
+      example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6InRlc3QtbG9naW4iLCJpYXQiOjE1MTYyMzkwMjJ9.-eQ1j8TEm9ESBJQQJBOvNlm-chXRw7bAfrdbSnvxSAQ"
+          
+  requestBodies:
+    Login:
+      description: Login object contains data necessary for user authorization
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Login'
+    

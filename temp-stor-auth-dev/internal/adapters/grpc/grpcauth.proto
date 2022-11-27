@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+// golang package where generated golang file to be placed
+option go_package = ".;grpcauth";
+
+message MessageJWT {
+    string service = 1;
+    string body = 2;
+}
+
+message ReplyJWT {    
+    string status = 1;
+}
+
+service MessageService {
+    rpc ServeJWT(MessageJWT) returns (ReplyJWT) {}    
+}
