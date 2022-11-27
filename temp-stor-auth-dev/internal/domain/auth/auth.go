@@ -65,5 +65,5 @@ func checkPass(pass, hash string) error {
 	if pass == hash {
 		return nil
 	}
-	return PassIncorrect
+	return ErrPassIncorrect
 }
