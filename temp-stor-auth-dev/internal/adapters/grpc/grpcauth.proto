@@ -1,17 +1,17 @@
 syntax = "proto3";
-
-// golang package where generated golang file to be placed
-option go_package = ".;grpcauth";
-
-message MessageJWT {
-    string service = 1;
-    string body = 2;
+ 
+package grpcServer;
+ 
+option go_package = ".;grpcServer";
+ 
+message JWTChekRequest {
+    string jwttoken = 1;
 }
-
-message ReplyJWT {    
-    string status = 1;
+ 
+message JWTChekResponse {
+    bool ok = 1;
 }
-
-service MessageService {
-    rpc ServeJWT(MessageJWT) returns (ReplyJWT) {}    
+ 
+service JWTChekService {
+    rpc JWTchek(JWTChekRequest) returns (JWTChekResponse) {}
 }
