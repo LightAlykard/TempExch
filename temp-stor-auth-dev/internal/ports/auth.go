@@ -3,7 +3,7 @@ package ports
 import (
 	"context"
 
-	"github.com/seggga/temp-stor-auth/internal/domain/models"
+	"github.com/TempExch/temp-stor-auth-dev/internal/domain/models"
 )
 
 type Auther interface {

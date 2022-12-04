@@ -2,15 +2,11 @@ package memory
 
 import (
 	"context"
-	"errors"
 	"sync"
 
+	er "github.com/TempExch/temp-stor-auth-dev/internal/adapters/storage"
+	"github.com/TempExch/temp-stor-auth-dev/internal/domain/models"
 	"github.com/google/uuid"
-	"github.com/seggga/temp-stor-auth/internal/domain/models"
-)
-
-var (
-	NOT_FOUND = errors.New("user with specified login was not found")
 )
 
 type Storage struct {
@@ -45,7 +41,7 @@ func (s *Storage) Get(ctx context.Context, login string) (*models.User, error) {
 	s.mutex.Unlock()
 
 	if !ok {
-		return nil, NOT_FOUND
+		return nil, er.NotFound
 	}
 	return &u, nil
 }

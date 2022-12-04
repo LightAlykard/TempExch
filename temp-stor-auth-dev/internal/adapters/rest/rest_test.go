@@ -8,7 +8,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/seggga/temp-stor-auth/internal/domain/models"
+	"github.com/TempExch/temp-stor-auth-dev/internal/domain/models"
 	"go.uber.org/zap"
 )
 

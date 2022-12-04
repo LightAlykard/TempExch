@@ -3,10 +3,10 @@ package application
 import (
 	"context"
 
-	"github.com/seggga/temp-stor-auth/internal/adapters/grpc"
-	"github.com/seggga/temp-stor-auth/internal/adapters/rest"
-	"github.com/seggga/temp-stor-auth/internal/adapters/storage/memory"
-	"github.com/seggga/temp-stor-auth/internal/domain/auth"
+	"github.com/TempExch/temp-stor-auth-dev/internal/adapters/grpc"
+	"github.com/TempExch/temp-stor-auth-dev/internal/adapters/rest"
+	"github.com/TempExch/temp-stor-auth-dev/internal/adapters/storage/memory"
+	"github.com/TempExch/temp-stor-auth-dev/internal/domain/auth"
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
 )

@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/TempExch/temp-stor-auth-dev/internal/domain/models"
+	"github.com/TempExch/temp-stor-auth-dev/internal/ports"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
-	"github.com/seggga/temp-stor-auth/internal/domain/models"
-	"github.com/seggga/temp-stor-auth/internal/ports"
 	"go.uber.org/zap"
 )
 

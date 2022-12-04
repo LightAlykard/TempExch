@@ -29,12 +29,12 @@ func checkToken(tokenString, jwtSecret string) (bool, string) {
 func createToken(login, secret string, duration int) (string, error) {
 	// check for empty secret
 	if secret == "" {
-		return "", EMPTY_SECRET
+		return "", EmptySecret
 	}
 
 	// check for incorrect token's time-to-live timeout
 	if duration <= 0 {
-		return "", ZERO_DURATION
+		return "", ZeroDuration
 	}
 
 	mySigningKey := []byte(secret)
