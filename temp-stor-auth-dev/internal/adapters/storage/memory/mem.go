@@ -4,7 +4,7 @@ import (
 	"context"
 	"sync"
 
-	er "github.com/TempExch/temp-stor-auth-dev/internal/adapters/storage"
+	"github.com/TempExch/temp-stor-auth-dev/internal/domain/auth"
 	"github.com/TempExch/temp-stor-auth-dev/internal/domain/models"
 	"github.com/google/uuid"
 )
@@ -41,7 +41,7 @@ func (s *Storage) Get(ctx context.Context, login string) (*models.User, error) {
 	s.mutex.Unlock()
 
 	if !ok {
-		return nil, er.NotFound
+		return nil, auth.ErrNotFound
 	}
 	return &u, nil
 }
