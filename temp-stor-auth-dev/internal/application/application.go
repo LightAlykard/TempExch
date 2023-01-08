@@ -3,7 +3,7 @@ package application
 import (
 	"context"
 
-	"github.com/TempExch/temp-stor-auth-dev/internal/adapters/grpc"
+	// "github.com/TempExch/temp-stor-auth-dev/internal/adapters/grpc"
 	"github.com/TempExch/temp-stor-auth-dev/internal/adapters/rest"
 	"github.com/TempExch/temp-stor-auth-dev/internal/adapters/storage/memory"
 	"github.com/TempExch/temp-stor-auth-dev/internal/domain/auth"
@@ -14,7 +14,7 @@ import (
 var (
 	logger   *zap.Logger
 	rService *rest.Service
-	gService *grpc.Service
+	// gService *grpc.Service
 )
 
 // Start ...
@@ -26,13 +26,13 @@ func Start(ctx context.Context) {
 
 	authService := auth.New(stor, cfg.JWT.Secret, cfg.JWT.Duration)
 	//gService = grpc.New(stor)
-	gService = grpc.New(cfg.JWT.Secret, cfg.JWT.Duration, logger, cfg.GrpcPorg)
+	// gService = grpc.New(cfg.JWT.Secret, cfg.JWT.Duration, logger, cfg.GrpcPorg)
 	rService = rest.New(authService, logger, cfg.RestPort)
 
 	var g errgroup.Group
-	g.Go(func() error {
-		return gService.Start(ctx)
-	})
+	// g.Go(func() error {
+	// 	return gService.Start(ctx)
+	// })
 	g.Go(func() error {
 		return rService.Start(ctx)
 	})
